@@ -1,0 +1,41 @@
+<form class="form">
+   <div class="row">
+      <div class="form-group col-md-6">
+         <input 
+         	type="text" 
+         	class="form-control" 
+         	id="search" 
+         	placeholder="search for vehicles or planets" 
+         	[(ngModel)]="searchText" 
+         	name="searchText">
+      </div>
+      <button type="submit" class="btn btn-default" (click)="onSubmitSearch()">Submit</button>
+   </div>
+	<label class="radio-inline">
+		<input 
+			type="radio" 
+			name="searchType" 
+			[checked]="searchType=='planets'" 
+			[value]="planets" 
+			[(ngModel)]="searchType">
+			Planets
+   	</label>
+   <label class="radio-inline"><input type="radio" name="searchType" value="vehicles" [(ngModel)]="searchType">Vehicles</label>
+</form>
+
+<p>&nbsp;</p>
+
+<div class="well text-warning col-md-12" *ngIf="searchType=='vehicles' && !vehicles"> 
+	No Vehicles Available
+</div>
+
+<div class="well text-warning col-md-12" *ngIf="searchType=='planets' && !planets"> 
+	No Planets Available
+</div>
+<ul class="list-group" *ngIf="searchType=='vehicles' && vehicles && vehicles.length">
+	<li *ngFor="let v of vehicles" [ngClass]='v.className'>{{v.name}}</li>
+</ul>
+
+<ul class="list-group" *ngIf="searchType=='planets' && planets && planets.length">
+	<li *ngFor="let p of planets" [ngClass]='p.className'>{{p.name}}</li>
+</ul>

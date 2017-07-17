@@ -1,0 +1,32 @@
+<div class="container" *ngIf="!starwarsService.authenticated()">
+    <div class="jumbotron">
+       <h1>Welcome to Star Wars world...</h1>
+       <p>you have to login to knock</p>
+    </div>
+ </div>
+
+ <div class="container" *ngIf="starwarsService.authenticated()">
+    <div class="jumbotron">
+       <h3>Welcome {{user.name}} to Star Wars world - By Anusha</h3>
+    </div>
+ </div>
+ <div class="container" *ngIf="starwarsService.authenticated()">
+ 	<div class="panel panel-default">
+   		<div class="panel-heading">
+	        <div class="panel-title">Profile Details</div>
+		</div>
+		<div class="panel-body">
+			<ul class="list-group">
+				<li class="list-group-item"><b>GENDER:  </b>{{user.gender}}</li>
+				<li class="list-group-item"><b>HEIGHT:  </b>{{user.height}}</li>
+				<li class="list-group-item"><b>MASS:  </b>{{user.mass}}</li>
+				<li class="list-group-item"><b>SKIN COLOR:  </b>{{user.skin_color}}</li>
+				<li class="list-group-item"><b>EYE COLOR:  </b>{{user.eye_color}}</li>
+				<li class="list-group-item"><b>MASS:  </b>{{user.mass}}</li>
+				<li class="list-group-item"><b>BIRTH YEAR:  </b>{{user.birth_year}}</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+      

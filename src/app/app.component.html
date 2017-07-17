@@ -1,0 +1,20 @@
+<div class="container">      
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+       <div class="navbar-header">
+          <a class="navbar-brand" href="javascript: void(0)" routerLink="/">Star Wars</a>
+       </div>
+       <ul class="nav navbar-nav">
+          <li *ngIf="starwarsService.authenticated()"><a a routerLink="/search">Search</a></li>
+       </ul>
+       <ul class="nav navbar-nav navbar-right">
+          <li *ngIf="!starwarsService.authenticated()"><a routerLink="/login">Login</a></li>
+          <li *ngIf="starwarsService.authenticated()" (click)="onClickLogout()"><a  href="javascript:void(0)">Logout</a></li>
+       </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
